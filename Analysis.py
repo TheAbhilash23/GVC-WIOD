@@ -51,7 +51,7 @@ class gvcOOP():
             self.inter_ex_list.append("c{}".format(i+1))
         print("\n\n",self.inter_ex_list,"\n\n")
         
-    def DVX(self): # Works Well
+    def DVX(self): #Works Well
         print("Calculating DVX for {}'s {} industry for the year {}".format(self.ex_country,self.ex_industry,self.year))
 
         self.dvxlist = self.df.loc[(self.df['excountry']==self.ex_country)&(self.df['exindustry']==self.ex_industry)&(self.df['imcountry']!=self.ex_country)]
@@ -81,7 +81,7 @@ class gvcOOP():
         print("GX Value stored in variable   fingx, \n\nDataframe stored in variable gxdf2\n")
         return self.fingx
 
-    def FVA(self):
+    def FVA(self): #Works well
         self.inter_im_list = []
         for i in range(56): #To get intermediaries for import is 'r1 , r2 ,r3,r4....r56'
             self.inter_im_list.append('r{}'.format(i+1))
@@ -116,10 +116,6 @@ a = gvcOOP('AUS','r6','AUT','c6',2014)
 
 # a.DVX()
 a.FVA()
-# # a.dvxdf2.to_csv("m1.csv",index=False)
-# a.fvadf2
-# a.df
-
 
 
 
