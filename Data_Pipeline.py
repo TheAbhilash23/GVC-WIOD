@@ -1,4 +1,13 @@
 import pandas as pd
+import os
+import pyxlsb as xls
+
+folder_path = 'RAW DATA//'
+file_list = os.listdir(folder_path)
+
+workbook = xls.(f"{folder_path}{file_list[0]}")
+sheet_1 = workbook.get_sheet(1)
+sheet_1
 
 
 class AbhilashDataFrame:
@@ -8,36 +17,37 @@ class AbhilashDataFrame:
         """
         self.folder_path = folder_path
         self.nrows = nrows
+        self.files = os.listdir(self.folder_path)
+        self.all_years = pd.DataFrame()
 
-    def __call__(self, file_name="WIOT2000_Nov16_ROW.xlsb", years=[2000], iterand=0):
+    def __call__(self, file_name=..., years=[2000], iterand=0):
         """This method takes file_name as string for the file name of the excel workbook .
         The second and third arguments are year as list of years needed to work on and the iterand argument
         """
+        for file in self.files:
 
-        print(f"\n\n\n Opening XLSXB file for year {years[iterand]} \n\n\n")
-        self.df = pd.read_excel(f"{self.folder_path}{file_name}",
-                                nrows=self.nrows,
-                                skiprows=4,
-                                index_col=[2, 3],
-                                header=[0, 1]
-                                )
-        self.df
-        self.geographies = self.df.columns
-        self.df.iloc[0, 4]
-        type(self.df.iloc[0, 4])
-        pass
+            print(f"\n\n\n Opening XLSXB file for year {years} :- \n\n\n")
 
-    def melt(self):
-        cleandf = pd.melt(
-            self.df, id_vars=['convention', 'inddes', 'hcountry', 'hindustry'])
-        variables = cleandf['variable'].str.split('_')
-        cleandf['fcountry'] = variables.str.get(0)
-        cleandf['findustry'] = variables.str.get(1)
-        del cleandf['variable']
-        del cleandf['convention']
-        cleandf.head(5)
-        cleandf.to_csv(
-            "C:\\VS Projects\\DATA CLEANING practice\\Major project practice\\Data\\CSVs\\finalprocesseddata\\{}_cleaned.csv".format(i), index=False)
+            self.df = pd.read_excel(f"{self.folder_path}{file}",
+                                    nrows=self.nrows,
+                                    skiprows=4,
+                                    index_col=[2, 3],
+                                    header=[0, 1],
+                                    )
+            pd.concat(self.all_years, self.flat_df)
+            break
+
+    def melt(self, save_file_path='Flattened Data Files//', save=True):
+
+        self.flat_df = pd.melt(
+            self.df,
+            id_vars=[(0, 0), (1, 1)],
+            col_level=1
+        )
+        return self.flat_df
+
+    # cleandf.to_csv(f"{save_file_path}FlatData.csv",
+    #                index=False)
 
     # # Following is a pipeline to extract the data from each year and put in one file
     # # CAUTION: ODF should be read out of for loop
@@ -58,6 +68,19 @@ class AbhilashDataFrame:
     # odf.to_csv("C:\\VS Projects\\DATA CLEANING practice\\Major project practice\\Data\\CSVs\\finalprocesseddata\\allyear.csv", index=False)
 
 
-data2000 = AbhilashDataFrame
-data2000.__call__()
+data2000 = AbhilashDataFrame()
+data2000.nrows
+data2000()
+
+data2000.df.iloc[0, 0]
+data2000.df.columns[0]
+data2000.all_years
+
 data2000.df
+
+data2000.flat_df = pd.melt(
+    data2000.df,
+    id_vars=[data2000.df.columns[0], data2000.df.columns[1]],
+    col_level=1,
+    ignore_index=False,
+)

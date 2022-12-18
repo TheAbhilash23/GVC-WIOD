@@ -18,8 +18,8 @@ fcntrylist = df['fcountry'].unique()
 findlist
 
 print("\n\nPlease select from the following(as is) \n\n Country",
-cntrylist,"\n\n\n r1 to r56 are intermediaries... ignore after them\n",hindlist,
-"\n\n\n c1 to c56 are intermediaries and after that are final consumptions\n",findlist)
+cntrylist,"\n\n\n r1 to r56 are intermediaries... ignore after them\n", hindlist,
+"\n\n\n c1 to c56 are intermediaries and after that are final consumptions\n", findlist)
 
 
 
