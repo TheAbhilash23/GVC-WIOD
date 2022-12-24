@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'drf_yasg',
+
+    'Data',
 ]
 
 MIDDLEWARE = [
@@ -121,3 +125,18 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+# Swagger settings
+SWAGGER_SETTINGS = {
+    'DEFAULT_INFO': 'import.path.to.urls.api_info',
+    'SECURITY_DEFINITIONS': {
+        'api_key': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization'
+        }
+    },
+}
+# DEFAULT_INFO is used to generate swagger via
+# 'python manage.py generate_swagger swagger.json'.

@@ -13,9 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from drf_yasg import openapi
+
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
+
+
+# from core.base_items.swagger import BaseSwagger
+# from routers import router
+
+
+# api_info = openapi.Info(
+#     title="Snippets API",
+# )
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    # path('api/', include(router.get_urls()), name='api'),
+    # path('swagger/',  include(BaseSwagger.urlpatterns), name='swagger')
 ]

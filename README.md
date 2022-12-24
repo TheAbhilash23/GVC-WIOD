@@ -22,7 +22,7 @@ information which helped me in my research.
 <h3> Aim  -> Facelift the existing work in form of a web application to make it user-friendly especially for economists. </h3>
 
 Build a web-application (website in layman terms) that automates the process of creating analysis. 
-Users will be able to import the data fromthe excel/csv files of databases such as OECD and WIOD 
+Users will be able to import the data from the excel/csv files of databases such as OECD and WIOD 
 for Trade-in Value Added data and get analysis report accordingly.
 
 There will be Two Services:-
@@ -37,7 +37,7 @@ There will be Two Services:-
 <b> Cleaner Serivce </b> : This service will be responsible for cleaning the data and storing the data 
 in the database. <br><br>
 <b> Analysis Application </b> : This service will be responsible for preprocessing the data for analysis and running
-machine learning models
+machine learning (or statistical) models
 <br>
 
 <br> <br>

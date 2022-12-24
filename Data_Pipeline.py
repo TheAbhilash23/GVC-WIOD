@@ -1,32 +1,44 @@
+
 import pandas as pd
 import os
 import pyxlsb as xls
 
-folder_path = 'RAW DATA//'
-file_list = os.listdir(folder_path)
 
-workbook = xls.(f"{folder_path}{file_list[0]}")
-sheet_1 = workbook.get_sheet(1)
-sheet_1
+folder_path = 'RAW DATA/'
+file_list = os.listdir()
+file_list
 
+
+get_file_name(0)
+
+
+df = pd.read_excel(get_file_name(0), skiprows=2, nrows=30)
+df.head()
 
 class AbhilashDataFrame:
-
+    """
+    This class implements data cleaning on the dataset
+    """
     def __init__(self, folder_path="RAW DATA//", nrows=20):
         """ Please enter the folder path and the number of rows you want to read
         """
-        self.folder_path = folder_path
         self.nrows = nrows
-        self.files = os.listdir(self.folder_path)
+        os.getcwd()
+        os.chdir(os.path.join(folder_path))
+        self.files = os.listdir(folder_path)
         self.all_years = pd.DataFrame()
 
-    def __call__(self, file_name=..., years=[2000], iterand=0):
+    def __call__(self, file_name=..., year=..., iterand=0):
         """This method takes file_name as string for the file name of the excel workbook .
         The second and third arguments are year as list of years needed to work on and the iterand argument
         """
+        def get_file_name(workbooklist=0):
+            return f"{file_list[workbooklist]}"
+
+
         for file in self.files:
 
-            print(f"\n\n\n Opening XLSXB file for year {years} :- \n\n\n")
+            print(f"\n\n\n Opening XLSXB file for year {year} :- \n\n\n")
 
             self.df = pd.read_excel(f"{self.folder_path}{file}",
                                     nrows=self.nrows,
