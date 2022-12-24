@@ -33,20 +33,20 @@ There will be Two Services:-
 </h4>
 
 
-<b> Data Serivce </b> : This service will be responsible for collecting the flattened data in the database. <br><br>
-<b> Cleaner Serivce </b> : This service will be responsible for cleaning the data and storing the data 
+<b> Data Service </b> : This service will be responsible for collecting the flattened data in the database. <br><br>
+<b> Cleaner Service </b> : This service will be responsible for cleaning the data and storing the data 
 in the database. <br><br>
-<b> Analysis Application </b> : This service will be responsible for preprocessing the data for analysis and running
+<b> Analysis Service </b> : This service will be responsible for preprocessing the data for analysis and running
 machine learning (or statistical) models
 <br>
 
 <br> <br>
 ##################################### <br>
-<h3> Sprint 1:- </h3> <br>
+<h2> Sprint 1:- </h2> <br>
 ####################################<br>
 
-1. Configure Swagger and create api endpoints &emsp;&emsp; <br>
-2. Create schema for data reader service. <br>
+1. Configure Swagger and create api endpoints &emsp;&emsp; <b>Done </b> <br>
+2. Create schema for data reader service. &emsp;&emsp;&emsp;&emsp;&emsp;<b>Done </b> <br><br>
 3. Create bare bones for data analysis service.<br>
 4. Create schema for data cleaning service.<br>
 5. Create methods to clean the dataset using pandas. <br>
@@ -55,7 +55,7 @@ machine learning (or statistical) models
 
 <br> <br>
 ##################################### <br>
-<h3> Sprint 2:- </h3> <br>
+<h2> Sprint 2:- </h2> <br>
 ####################################<br>
 
 8. Create token based access <br>
