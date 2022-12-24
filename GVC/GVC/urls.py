@@ -19,17 +19,12 @@ from django.contrib import admin
 from django.urls import path, include
 
 
-# from core.base_items.swagger import BaseSwagger
-# from routers import router
-
-
-# api_info = openapi.Info(
-#     title="Snippets API",
-# )
+from core.base_items.swagger import BaseSwagger
+from .routers import router
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    # path('api/', include(router.get_urls()), name='api'),
-    # path('swagger/',  include(BaseSwagger.urlpatterns), name='swagger')
+    path('api/', include(router.get_urls()), name='api'),
+    path('swagger/',  include(BaseSwagger.urlpatterns), name='swagger')
 ]

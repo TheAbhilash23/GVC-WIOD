@@ -70,7 +70,7 @@ class TradeInValueAdded(base_models.BaseModel):
     Year = models.ForeignKey(
         "Data.Year",
         on_delete=models.CASCADE,
-        related_name="WIODYear"
+        related_name="TiVAYears"
     )
     ImportDatabase = models.ForeignKey(
         "Data.ImportDatabase",
