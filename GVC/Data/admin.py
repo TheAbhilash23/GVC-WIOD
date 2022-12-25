@@ -7,25 +7,31 @@ from Data import models
 class TradeInValueAddedInline(admin.StackedInline):
 
     model = models.TradeInValueAdded
-    list_display = ['ImportDatabase', 'InputCountry',
+    list_display = ['DatabaseYear', 'InputCountry',
                     'InputSector', 'OutputCountry',
                     'OutputSector', 'ValueAdded',
                     ]
 
 
+class DatabaseYearInline(admin.StackedInline):
+
+    model = models.DatabaseYear
+    list_display = ['Year', 'IsAbnormal',
+                    'ImportDatabase',]
+
 @admin.register(models.ImportDatabase)
 class ImportDataBaseAdmin(admin.ModelAdmin):
-    inlines = [TradeInValueAddedInline, ]
+    inlines = [DatabaseYearInline, ]
 
 
-@admin.register(models.Year)
-class YearAdmin(admin.ModelAdmin):
+@admin.register(models.DatabaseYear)
+class DatabaseYearAdmin(admin.ModelAdmin):
     inlines = [TradeInValueAddedInline, ]
 
 
 @admin.register(models.TradeInValueAdded)
 class TradeInValueAddedAdmin(admin.ModelAdmin):
-    list_display = ['ImportDatabase', 'InputCountry',
+    list_display = ['DatabaseYear', 'InputCountry',
                     'InputSector', 'OutputCountry',
                     'OutputSector', 'ValueAdded',
                     ]

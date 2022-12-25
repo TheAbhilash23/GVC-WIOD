@@ -8,14 +8,20 @@ from Data import serializers, models
 
 
 class TiVAViewSet(ModelViewSet):
-    serializer_class = serializers.TradeInValueAddedSerializer
+    serializer_class = serializers.ImportDatabaseSerializer
+    queryset = models.TradeInValueAdded.objects.all()
+    permission_classes = [permissions.AllowAny]
+
+
+class TiVAViewSet(ModelViewSet):
+    serializer_class = serializers.ImportDatabaseSerializer
     queryset = models.TradeInValueAdded.objects.all()
     permission_classes = [permissions.AllowAny]
 
     @action(
         methods=['get', 'post', 'patch', 'delete'],
         detail=True,
-        serializer_class=serializers.TradeInValueAddedSerializer,
+        serializer_class=serializers.ImportDatabaseSerializer,
         url_path='TiVA_analytics'
     )
     def analysis(self, request, *args, **kwargs):
